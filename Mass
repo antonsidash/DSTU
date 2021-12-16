@@ -1,0 +1,70 @@
+// Mass1
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Mass1
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] Mass = new int[int.Parse(Console.ReadLine())];
+
+            for (int i = 0; i < Mass.Length; i++)
+                Mass[i] = int.Parse(Console.ReadLine());
+
+            Console.WriteLine(Mass.Max());
+            for (int i = Mass.Length - 1; i >= 0; i -= 1)
+                Console.WriteLine(Mass[i]);
+        }
+    }
+    
+    
+
+// Mass 1.2
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Mass12
+{
+    class Program
+    {
+        static double GetAvgWithoutNulls(double[] Mass)
+        {
+            double Summ = 0;
+            int Count = 0;
+            foreach (double x in Mass)
+                if (x != 0)
+                {
+                    Summ += x;
+                    Count++;
+                }
+
+            return Summ / Count;
+        }
+
+        static void Main(string[] args)
+        {
+            double[] Mass = new double[int.Parse(Console.ReadLine())];
+
+            for (int i = 0; i < Mass.Length; i++)
+                Mass[i] = double.Parse(Console.ReadLine());
+
+            double Avg = GetAvgWithoutNulls(Mass);
+
+            for (int i = 0; i < Mass.Length; i++)
+            {
+                if (Mass[i] == 0)
+                    Mass[i] = Avg;
+                Console.WriteLine(Mass[i]);
+            }
+        }
+    }
+}
+
