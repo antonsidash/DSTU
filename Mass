@@ -68,3 +68,114 @@ namespace Mass12
     }
 }
 
+
+// Массивы 2
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Mass2
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] Mass = new int[int.Parse(Console.ReadLine())];
+
+            for (int i = 0; i < Mass.Length; i++)
+                Mass[i] = int.Parse(Console.ReadLine());
+
+            Console.WriteLine(Mass.Min());
+
+            int MinInd = 0;
+            for (int i = 0; i < Mass.Length; i++)
+                if (Mass[i] == Mass.Min())
+                {
+                    MinInd = i;
+                    break;
+                }
+
+            Console.WriteLine(MinInd);
+        }
+    }
+}
+
+
+// Массивы 2.2
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Mass22
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] Mass = new int[int.Parse(Console.ReadLine())];
+
+            for (int i = 0; i < Mass.Length; i++)
+                Mass[i] = int.Parse(Console.ReadLine());
+
+            int[] Positive = new int[Mass.Length];
+            int[] Negative = new int[Mass.Length];
+
+            int Index = 0;
+            foreach (int x in Mass)
+                if (x >= 0)
+                {
+                    Positive[Index] = x;
+                    Index++;
+                }
+            Array.Resize(ref Positive, Index + 1);
+
+            Index = 0;
+            foreach (int x in Mass)
+                if (x < 0)
+                {
+                    Negative[Index] = x;
+                    Index++;
+                }
+            Array.Resize(ref Negative, Index + 1);
+
+            foreach (int x in Positive)
+                Console.WriteLine(x);
+            foreach (int x in Negative)
+                Console.WriteLine(x);
+        }
+    }
+}
+
+
+// Массивы 3
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Mass3
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int[] Mass = new int[int.Parse(Console.ReadLine())];
+
+            for (int i = 0; i < Mass.Length; i++)
+                Mass[i] = int.Parse(Console.ReadLine());
+
+            int Summ = 0;
+            for (int i = 1; i < Mass.Length; i += 2)
+                Summ += Mass[i];
+
+            foreach (int x in Mass)
+                Console.WriteLine(x);
+            Console.WriteLine(Summ);
+        }
+    }
+}
